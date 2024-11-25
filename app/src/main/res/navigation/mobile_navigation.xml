@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.mindspace.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_meditation"
+        android:name="com.example.mindspace.ui.meditation.MeditationFragment"
+        android:label="@string/title_meditation"
+        tools:layout="@layout/fragment_therapist" />
+
+    <fragment
+        android:id="@+id/navigation_therapist"
+        android:name="com.example.mindspace.ui.therapist.TherapistFragment"
+        android:label="@string/title_therapist"
+        tools:layout="@layout/fragment_meditation" />
+
+    <fragment
+        android:id="@+id/navigation_health"
+        android:name="com.example.mindspace.ui.mental_health.MentalHealthFragment"
+        android:label="@string/title_mental_health"
+        tools:layout="@layout/fragment_mental_health" />
+
+    <fragment
+        android:id="@+id/navigation_mood"
+        android:name="com.example.mindspace.ui.mood_tracker.MoodTrackerFragment"
+        android:label="@string/title_mood_tracker"
+        tools:layout="@layout/fragment_mood_tracker" />
+</navigation>

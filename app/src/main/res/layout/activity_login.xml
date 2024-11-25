@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="?android:windowBackground"
+    android:gravity="center">
+
+    <!-- Image at the top -->
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="287dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/image1" />
+
+    <!-- Login Text under the image -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="?android:textColor"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Email Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="?android:textColor"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Email EditText with a bottom line -->
+    <com.example.mindspace.customview.EmailText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_email"
+        android:inputType="textEmailAddress"
+        android:textColor="?android:textColor"
+        android:textColorHint="?android:textColorHint"
+        android:background="@drawable/edittext_bottom_line"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
+        android:textSize="16sp" />
+
+    <!-- Password Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="?android:textColor"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Password EditText with a bottom line -->
+    <com.example.mindspace.customview.PasswordText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_password"
+        android:inputType="textPassword"
+        android:textColor="?android:textColor"
+        android:textColorHint="?android:textColorHint"
+        android:background="@drawable/edittext_bottom_line"
+        android:layout_marginBottom="32dp"
+        android:padding="8dp"
+        android:textSize="16sp" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/login"
+        android:backgroundTint="?colorPrimary"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="16dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:indeterminate="true"
+        android:theme="@style/Widget.AppCompat.ProgressBar" />
+
+</LinearLayout>

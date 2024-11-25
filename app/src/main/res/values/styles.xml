@@ -1,0 +1,32 @@
+<resources>
+    <style name="FullScreenDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="AppTheme.TransparentActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="windowActionBar">true</item> <!-- Enable action bar -->
+        <item name="windowNoTitle">true</item> <!-- Remove title bar -->
+        <item name="android:windowBackground">@android:color/white</item> <!-- Optional background -->
+        <item name="android:actionBarStyle">@style/TransparentActionBarStyle</item>
+    </style>
+
+    <style name="TransparentActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@android:color/transparent</item> <!-- Set the background to transparent -->
+        <item name="android:titleTextStyle">@style/TransparentActionBarTitleStyle</item>
+    </style>
+
+    <style name="TransparentActionBarTitleStyle">
+        <item name="android:textColor">@android:color/white</item> <!-- Optional: set title text color -->
+    </style>
+
+    <style name="ThemeActionBar"
+        parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">#80000000</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/translucent_black</item>
+    </style>
+
+
+</resources>

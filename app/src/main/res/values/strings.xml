@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">MindSpace</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="meditation">Meditation</string>
+    <string name="title_meditation">Meditation</string>
+    <string name="title_therapist">Therapist</string>
+    <string name="title_mood_tracker">Mood Tracker\n</string>
+    <string name="title_mental_health">Mental Health</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_desc">no</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="name">Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="welcome">Welcome!</string>
+    <string name="register">Register</string>
+    <string name="user_id">User ID: %1$s</string>
+    <string name="user_name">User Name: %1$s</string>
+    <string name="token">Token: %1$s</string>
+    <string name="logout">Log out</string>
+    <string name="open_stories">Open Stories</string>
+    <string name="post_a_story">Post a story</string>
+    <string name="empty_image_warning">No images\n</string>
+    <string name="image_show">Image Show</string>
+    <string name="open_gallery">Open Gallery</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="description">Description</string>
+    <string name="post_story">Post Story</string>
+    <string name="user_id_label">UserID\n</string>
+    <string name="user_name_label">Name</string>
+    <string name="token_label">API Token</string>
+</resources>
