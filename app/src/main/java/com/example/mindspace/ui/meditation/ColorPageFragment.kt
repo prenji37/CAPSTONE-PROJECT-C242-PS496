@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
+import androidx.appcompat.widget.AppCompatImageButton
 import com.example.mindspace.R
 import com.example.mindspace.databinding.ItemPageBinding
 
@@ -104,7 +105,7 @@ class ColorPageFragment : Fragment() {
     private fun startMusic() {
         mediaPlayer?.start()
         isPlaying = true
-        binding.playPauseButton.text = "Pause"
+        binding.playPauseButton.setImageResource(R.drawable.ic_pause)
         handler?.postDelayed({
             stopMusic()
         }, playDuration)
@@ -113,7 +114,7 @@ class ColorPageFragment : Fragment() {
     private fun stopMusic() {
         mediaPlayer?.pause()
         isPlaying = false
-        binding.playPauseButton.text = "Play"
+        binding.playPauseButton.setImageResource(R.drawable.ic_play)
     }
 
     override fun onDestroyView() {

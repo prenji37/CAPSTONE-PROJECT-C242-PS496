@@ -23,8 +23,8 @@ class MeditationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
-        val musicFiles = listOf(R.raw.music1, R.raw.music2, R.raw.music3)
+        val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4, R.drawable.image5)
+        val musicFiles = listOf(R.raw.music1, R.raw.music2, R.raw.music3, R.raw.music4, R.raw.music5)
         val adapter = ColorRecyclerAdapter(requireActivity(), images, musicFiles)
 
         binding.viewPager.adapter = adapter

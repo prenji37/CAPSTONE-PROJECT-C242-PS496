@@ -1,13 +1,330 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mood_tracker.MoodTrackerFragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/tracker_gradient"
+    android:clipToPadding="false">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How are you feeling today?"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/rounded_text_background"
+        android:gravity="center" />
 
-</FrameLayout>
+    <GridLayout
+        android:id="@+id/moodButtonGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="3"
+        android:layout_marginBottom="24dp"
+        android:columnOrderPreserved="false"
+        android:alignmentMode="alignMargins">
+
+        <!-- Buttons updated for consistency -->
+        <Button
+            android:id="@+id/happyButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:text="Happy"
+            android:background="@drawable/circular_button_yellow"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            android:contentDescription="Happy mood button" />
+
+        <Button
+            android:id="@+id/contentButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:text="Content"
+            android:background="@drawable/circular_button_green"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            android:contentDescription="Content mood button" />
+
+        <Button
+            android:id="@+id/neutralButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:text="Neutral"
+            android:background="@drawable/circular_button_blue"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            android:contentDescription="Neutral mood button" />
+
+        <!-- Second-row buttons -->
+
+        <Button
+            android:id="@+id/sadButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/circular_button_orange"
+            android:contentDescription="Sad mood button"
+            android:elevation="4dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Sad"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/anxiousButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:text="Anxious"
+            android:background="@drawable/circular_button_purple"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            android:contentDescription="Anxious mood button" />
+
+        <Button
+            android:id="@+id/angryButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_row="1"
+            android:text="Angry"
+            android:background="@drawable/circular_button_red"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            android:contentDescription="Angry mood button" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/alreadySubmittedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have already submitted your mood for today."
+        android:textSize="16sp"
+        android:textColor="#FF0000"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@drawable/rounded_text_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <!-- First row with 5 days -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="4dp">
+                <View
+                    android:id="@+id/sundayMood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circular_view_background"
+                    android:contentDescription="Mood status for Sunday" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sun"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="4dp">
+                <View
+                    android:id="@+id/mondayMood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circular_view_background"
+                    android:contentDescription="Mood status for Monday" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mon"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="4dp">
+                <View
+                    android:id="@+id/tuesdayMood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circular_view_background"
+                    android:contentDescription="Mood status for Tuesday" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tue"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="4dp">
+                <View
+                    android:id="@+id/wednesdayMood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circular_view_background"
+                    android:contentDescription="Mood status for Wednesday" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wed"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="4dp">
+                <View
+                    android:id="@+id/thursdayMood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circular_view_background"
+                    android:contentDescription="Mood status for Thursday" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thu"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Second row with 2 days -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="4dp">
+                <View
+                    android:id="@+id/fridayMood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circular_view_background"
+                    android:contentDescription="Mood status for Friday" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fri"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="4dp">
+                <View
+                    android:id="@+id/saturdayMood"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circular_view_background"
+                    android:contentDescription="Mood status for Saturday" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sat"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/weeklySummaryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Weekly Mood Summary"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text_background"
+        android:fontFamily="@font/poppins_regular" />
+</LinearLayout>

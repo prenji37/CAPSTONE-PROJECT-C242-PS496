@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="45"
+                android:startColor="#FF1493"
+                android:endColor="#800080"
+                android:type="linear" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Ripple effect -->
+    <item>
+        <ripple android:color="?android:attr/colorControlHighlight">
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="16dp" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</layer-list>

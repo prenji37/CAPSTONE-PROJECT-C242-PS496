@@ -36,4 +36,25 @@
     <string name="user_id_label">UserID\n</string>
     <string name="user_name_label">Name</string>
     <string name="token_label">API Token</string>
+    <string name="action_send">send</string>
+    <string name="chat_label">chat</string>
+    <string name="default_web_client_id">724452995706-dqnjg2um6cdk5hcbk74veeif23bb9ttn.apps.googleusercontent.com</string>
+    <string name="google_logo_desc">google logo</string>
+    <string name="google_sign_in">Sign-in</string>
+    <string name="result_icon">Result</string>
+    <string name="reminder_icon">reminder</string>
+    <string name="calendar_icon">calendar\n</string>
+    <string name="mood_icon">mood</string>
+    <string name="home_illustration">home</string>
+    <string name="profile_image">profile_image</string>
+    <string name="google_logo">Google logo</string>
+    <string-array name="moods">
+        <item>Happy</item>
+        <item>Sad</item>
+        <item>Neutral</item>
+        <item>Excited</item>
+        <item>Angry</item>
+    </string-array>
+
+
 </resources>

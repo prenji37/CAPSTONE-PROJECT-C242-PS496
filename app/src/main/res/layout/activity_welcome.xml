@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -6,17 +7,17 @@
     android:padding="16dp"
     android:background="#FF0000">
 
-
+    <!-- Logo Image -->
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/mindspace_shadow"
         android:contentDescription="@string/app_name"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="32dp"
         android:scaleType="centerCrop" />
 
-
+    <!-- Welcome Text -->
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
@@ -25,29 +26,61 @@
         android:textSize="28sp"
         android:fontFamily="sans-serif-medium"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:paddingBottom="24dp"
-        android:textStyle="bold" />
+        android:gravity="center" />
 
-
+    <!-- Register Button -->
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#6200EE"
+        android:background="@drawable/neon_button_shape"
         android:textColor="#FFFFFF"
         android:text="@string/register"
         android:elevation="4dp"
         android:padding="12dp"
         android:layout_marginBottom="16dp" />
 
-
+    <!-- Login Button -->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#03DAC5"
+        android:background="@drawable/neon_button_shape"
         android:textColor="#FFFFFF"
         android:text="@string/login"
         android:elevation="4dp"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Google Sign-In Button with Logo -->
+    <LinearLayout
+        android:id="@+id/googleSignInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/neon_button_shape"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/googleLogo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_google"
+            android:contentDescription="@string/google_logo_desc"
+            android:layout_marginEnd="8dp"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/googleSignInText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/google_sign_in"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
 </LinearLayout>

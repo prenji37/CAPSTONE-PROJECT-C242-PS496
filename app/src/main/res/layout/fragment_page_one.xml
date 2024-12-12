@@ -1,0 +1,170 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/questionnaire_gradient">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Study Satisfaction (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/study_satisfaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate your satisfaction with your studies."
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Academic Pressure (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/academic_pressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How much pressure do you feel from your academics?"
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Financial Concerns (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/financial_concerns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate your financial concerns."
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Social Relationships (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/social_relationships"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How satisfied are you with your social relationships?"
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Depression (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/depression"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate your level of depression."
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anxiety (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/anxiety"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate your level of anxiety."
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_gravity="center"
+        android:background="?attr/selectableItemBackground"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/poppins_regular"
+        android:backgroundTint="#6200EE"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

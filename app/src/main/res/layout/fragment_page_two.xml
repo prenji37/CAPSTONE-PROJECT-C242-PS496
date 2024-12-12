@@ -1,0 +1,165 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/questionnaire_gradient">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Isolation (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/isolation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate your level of isolation."
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Future Insecurity (1-5)"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <SeekBar
+        android:id="@+id/futureInsecurity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="4"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How insecure do you feel about the future?"
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CGPA"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <RadioGroup
+        android:id="@+id/cgpa_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0-1.5"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.5-2.0"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.0-2.5"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.5-3.0"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.0-3.5"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.5-4.0"
+            android:fontFamily="@font/poppins_regular" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average Sleep"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+    <RadioGroup
+        android:id="@+id/average_sleep_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2-4 hrs"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4-6 hrs"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6-7 hrs"
+            android:fontFamily="@font/poppins_regular" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7-8 hrs"
+            android:fontFamily="@font/poppins_regular" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/previous_button"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:backgroundTint="#6200EE"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Previous"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:backgroundTint="#6200EE"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Submit"
+        android:textColor="#ffffff" />
+</LinearLayout>

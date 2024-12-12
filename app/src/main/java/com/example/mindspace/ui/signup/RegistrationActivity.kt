@@ -2,20 +2,26 @@ package com.example.mindspace.ui.signup
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.mindspace.R
+import com.example.mindspace.api.ApiConfig.retrofit
+import com.example.mindspace.api.ApiService
+import com.example.mindspace.api.RegisterRequest
 import com.example.mindspace.databinding.ActivityRegistrationBinding
 import com.example.mindspace.ui.login.LoginActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RegistrationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistrationBinding
+    private val apiService: ApiService by lazy {
+        retrofit.create(ApiService::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +38,30 @@ class RegistrationActivity : AppCompatActivity() {
 
     private fun registerUser(name: String, email: String, password: String) {
         showProgressBar()
-        // Simulate registration process
-        hideProgressBar()
-        showToast("Registration successful for $name")
-        navigateToLogin()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val request = RegisterRequest(email, name, password)
+                val response = apiService.registerUser(request)
+                withContext(Dispatchers.Main) {
+                    hideProgressBar()
+                    if (response.isSuccessful) {
+                        showToast("Registration successful for $name")
+                        navigateToLogin()
+                    } else {
+                        val errorMessage = "Registration failed: ${response.code()}"
+                        showToast(errorMessage)
+                        Log.e("RegistrationActivity", errorMessage)
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    val errorMessage = "An error occurred: ${e.message}"
+                    hideProgressBar()
+                    showToast(errorMessage)
+                    Log.e("RegistrationActivity", errorMessage, e)
+                }
+            }
+        }
     }
 
     private fun showToast(message: String?) {
@@ -51,7 +77,6 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun navigateToLogin() {
-        // Create an intent to start the LoginActivity
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()

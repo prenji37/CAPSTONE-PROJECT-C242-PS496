@@ -8,22 +8,22 @@
 
     <item
         android:id="@+id/navigation_meditation"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_meditation"
         android:title="@string/title_meditation" />
 
     <item
         android:id="@+id/navigation_therapist"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_therapist"
         android:title="@string/title_therapist" />
 
     <item
         android:id="@+id/navigation_mood"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_mood_tracker"
         android:title="@string/title_mood_tracker" />
 
     <item
         android:id="@+id/navigation_health"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_mental_health"
         android:title="@string/title_mental_health" />
 
 </menu>

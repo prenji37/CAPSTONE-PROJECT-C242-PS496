@@ -1,0 +1,6 @@
+<!-- res/drawable/rounded_number_picker.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@android:color/transparent" /> <!-- Custom color -->
+    <corners android:radius="12dp" />
+</shape>

@@ -8,32 +8,55 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.LinearLayout
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.lifecycleScope
 import com.example.mindspace.databinding.ActivityWelcomeBinding
 import com.example.mindspace.ui.login.LoginActivity
 import com.example.mindspace.ui.signup.RegistrationActivity
-import kotlinx.coroutines.launch
+import com.example.mindspace.AuthViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
 
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWelcomeBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private val authViewModel: AuthViewModel by viewModels()
+    private val RC_SIGN_IN = 9001
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        animateBackgroundRGB(binding.root)
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
 
-//        checkLoginState()
+        // Check if user is already signed in
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            navigateToMainActivity()
+        }
+
+        // Configure Google Sign-In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        animateBackgroundRGB(binding.root)
 
         binding.welcomeText.translationY = 500f
         binding.registerButton.translationY = 500f
         binding.loginButton.translationY = 500f
+        binding.googleSignInButton.translationY = 500f
         binding.logoImage.translationY = 500f
 
         binding.registerButton.setOnClickListener {
@@ -45,21 +68,40 @@ class WelcomeActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+
+        binding.googleSignInButton.setOnClickListener {
+            signInWithGoogle()
+        }
     }
 
-//    private fun checkLoginState() {
-//        lifecycleScope.launch {
-//            val isLoggedIn = dataStoreManager.tokenFlow.first()?.isNotEmpty() == true
-//            if (isLoggedIn) {
-//                val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//            }
-//        }
-//    }
+    private fun signInWithGoogle() {
+        googleSignInClient.signOut().addOnCompleteListener {
+            val signInIntent = googleSignInClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)!!
+                authViewModel.firebaseAuthWithGoogle(this, account)
+            } catch (e: ApiException) {
+                Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun navigateToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
     private fun animateBackgroundRGB(layout: LinearLayout) {
-        // Define the colors to cycle through
         val colors = intArrayOf(
             Color.parseColor("#80FF7F7F"), // Soft red
             Color.parseColor("#807FFF7F"), // Soft green
@@ -71,16 +113,12 @@ class WelcomeActivity : AppCompatActivity() {
 
         animateFlyIn()
 
-        // Convert IntArray to Array<Int> using toTypedArray()
         val colorArray = colors.toTypedArray()
-
-        // Create an animator with these colors
-        val colorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), *colorArray) // Spread operator works now
-        colorAnimator.duration = 30000 // 5 seconds for full animation
+        val colorAnimator = ValueAnimator.ofObject(ArgbEvaluator(), *colorArray)
+        colorAnimator.duration = 30000
         colorAnimator.repeatCount = ValueAnimator.INFINITE
         colorAnimator.repeatMode = ValueAnimator.REVERSE
 
-        // Update background color during animation
         colorAnimator.addUpdateListener { animator ->
             layout.setBackgroundColor(animator.animatedValue as Int)
         }
@@ -89,35 +127,35 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun animateFlyIn() {
-        // Animate Image (starts first)
         val imageAnim = ObjectAnimator.ofFloat(binding.logoImage, "translationY", 500f, 0f)
         imageAnim.duration = 1000
-        imageAnim.startDelay = 0 // Starts immediately
+        imageAnim.startDelay = 0
         imageAnim.interpolator = AccelerateDecelerateInterpolator()
 
-        // Animate Welcome Text
         val welcomeTextAnim = ObjectAnimator.ofFloat(binding.welcomeText, "translationY", 500f, 0f)
         welcomeTextAnim.duration = 1000
-        welcomeTextAnim.startDelay = 200 // Starts after image (200ms delay)
+        welcomeTextAnim.startDelay = 200
         welcomeTextAnim.interpolator = AccelerateDecelerateInterpolator()
 
-        // Animate Register Button
         val registerButtonAnim = ObjectAnimator.ofFloat(binding.registerButton, "translationY", 500f, 0f)
         registerButtonAnim.duration = 1000
-        registerButtonAnim.startDelay = 400 // Starts after Welcome text (400ms delay)
+        registerButtonAnim.startDelay = 400
         registerButtonAnim.interpolator = AccelerateDecelerateInterpolator()
 
-        // Animate Login Button
         val loginButtonAnim = ObjectAnimator.ofFloat(binding.loginButton, "translationY", 500f, 0f)
         loginButtonAnim.duration = 1000
-        loginButtonAnim.startDelay = 600 // Starts after Register button (600ms delay)
+        loginButtonAnim.startDelay = 600
         loginButtonAnim.interpolator = AccelerateDecelerateInterpolator()
 
-        // Start all animations at once, with staggered delays
+        val googleSignInButtonAnim = ObjectAnimator.ofFloat(binding.googleSignInButton, "translationY", 500f, 0f)
+        googleSignInButtonAnim.duration = 1000
+        googleSignInButtonAnim.startDelay = 800
+        googleSignInButtonAnim.interpolator = AccelerateDecelerateInterpolator()
+
         imageAnim.start()
         welcomeTextAnim.start()
         registerButtonAnim.start()
         loginButtonAnim.start()
+        googleSignInButtonAnim.start()
     }
-
 }
